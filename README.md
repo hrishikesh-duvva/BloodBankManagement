@@ -1,228 +1,93 @@
 # BloodBankManagement
 
-Project Overview
+## Project Overview
 The Blood Bank Management System is a simple ASP.NET Core API program which is used for maintaining the records of blood donors. It allows CRUD operations, searching, pagination, and sorting of donor records.
 
-Features
-Add, update, delete, and retrieve donor records.
-Search donors by name, blood type, or status.
-Paginate results for efficient data presentation.
+## Features
+- Add, update, delete, and retrieve donor records.
+- Search donors by name, blood type, or status.
+- Paginate results for efficient data presentation.
 
-Prerequisites
+## Prerequisites
 Ensure the following are installed on your system:
-.NET 6 SDK or later
-A code editor like Visual Studio or Visual Studio Code
-A REST client like Postman for testing the API.
+- .NET 6 SDK or later
+- A code editor like Visual Studio or Visual Studio Code
+- A REST client like Postman for testing the API.
 
+## Setup Instructions
 
-Setup Instructions
-1. Clone the Repository
+### 1. Clone the Repository
+```bash
 git clone https://github.com/hrishikesh-duvva/BloodBankManagement.git
 cd BloodBankManagement
-2. Build the Project
+```
+
+### 2. Build the Project
+```bash
 dotnet build
-3. Run the API
+```
+
+### 3. Run the API
 Start the API server:
+```bash
 dotnet run
-By default, the server will run at http://localhost:5178
+```
+By default, the server will run at [http://localhost:5178](http://localhost:5178).
 
-
-Test the API
-Open http://localhost:5178/swagger/index.html for API testing using swagger.
+### 4. Test the API
+Open [http://localhost:5178/swagger/index.html](http://localhost:5178/swagger/index.html) for API testing using Swagger.
 Use Postman to test the endpoints.
 
+## Endpoints Documentation
 
-
-Endpoints Documentation
-1. Get All Entries
+### 1. Get All Entries
 Retrieve all donor records.
 
-GET /api/BloodBank
+**GET** `/api/BloodBank`
 
-Response:
+**Response:**
+```json
 [
     {
-      "donorName": "Anjali Bose",
-      "age": 30,
-      "bloodType": "O-",
-      "contactInfo": "anjali.bose@example.com",
-      "quantity": 500,
-      "collectionDate": "2024-11-16T16:00:00",
-      "expirationDate": "2025-01-16T16:00:00",
-      "status": "Available"
-    },
-    ...
-]
-
-
-2. Get Entry by ID
-Retrieve a single donor record by its unique ID.
-
-GET /api/BloodBank/{id}
-Response:
-[
-    {
-      "donorName": "Anjali Bose",
-      "age": 30,
-      "bloodType": "O-",
-      "contactInfo": "anjali.bose@example.com",
-      "quantity": 500,
-      "collectionDate": "2024-11-16T16:00:00",
-      "expirationDate": "2025-01-16T16:00:00",
-      "status": "Available"
-    },
-    ...
-]
-
-3. Create a New Entry
-Add a new donor record.
-
-POST /api/BloodBank
-Request Body:
-{
-    "donorName": "Anjali Singh",
-    "age": 28,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 450,
-    "collectionDate": "2024-11-15T12:00:00",
-    "expirationDate": "2025-01-15T12:00:00",
-    "status": "Available"
-}
-Response:
-201 Created
-{
-    "id": "newly-generated-id",
-    "donorName": "Anjali Singh",
-    "age": 28,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 450,
-    "collectionDate": "2024-11-15T12:00:00",
-    "expirationDate": "2025-01-15T12:00:00",
-    "status": "Available"
-}
-
-
-4. Update an Entry
-Update an existing donor record by ID.
-
-PUT /api/BloodBank/{id}
-Request Body:
-{
-    "donorName": "Anjali Sharma",
-    "age": 29,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 500,
-    "collectionDate": "2024-11-20T12:00:00",
-    "expirationDate": "2025-01-20T12:00:00",
-    "status": "Unavailable"
-}
-Response:
-204 No Content
-
-5. Delete an Entry
-Delete a donor record by ID.
-
-DELETE /api/BloodBank/{id} Response:
-204 No Content
-
-
-Here’s a comprehensive README.md file for your Blood Bank Management project. It includes an overview, setup instructions, and detailed descriptions of the endpoints.
-
-Blood Bank Management System
-Project Overview
-The Blood Bank Management System is a simple ASP.NET Core API for managing blood donation records. It allows CRUD operations, searching, pagination, and sorting of donor records. The project demonstrates fundamental concepts of web API development with ASP.NET Core and follows best practices for designing RESTful APIs.
-
-Features
-Add, update, delete, and retrieve donor records.
-Search donors by name, blood type, or status.
-Paginate results for efficient data presentation.
-Sort records by BloodType or CollectionDate.
-Prerequisites
-Ensure the following are installed on your system:
-
-.NET 6 SDK or later
-A code editor like Visual Studio or Visual Studio Code
-A REST client like Postman or curl for testing the API
-Setup Instructions
-1. Clone the Repository
-bash
-Copy code
-git clone https://github.com/your-username/BloodBankManagement.git
-cd BloodBankManagement
-2. Build the Project
-Restore dependencies and build the project:
-
-bash
-Copy code
-dotnet build
-3. Run the API
-Start the API server:
-
-bash
-Copy code
-dotnet run
-By default, the server will run at http://localhost:5178.
-
-4. Test the API
-Open a browser and navigate to http://localhost:5178/swagger/index.html to explore the Swagger UI.
-Use tools like Postman or curl to test the endpoints.
-Endpoints Documentation
-Base URL
-bash
-Copy code
-http://localhost:5178/api/BloodBank
-1. Get All Entries
-Retrieve all donor records.
-
-GET /api/BloodBank
-
-json
-Copy code
-Response:
-[
-    {
-        "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-        "donorName": "Rajesh Kumar",
+        "donorName": "Anjali Bose",
         "age": 30,
-        "bloodType": "A+",
-        "contactInfo": "rajesh@example.com",
+        "bloodType": "O-",
+        "contactInfo": "anjali.bose@example.com",
         "quantity": 500,
-        "collectionDate": "2024-11-01T10:00:00",
-        "expirationDate": "2025-01-01T10:00:00",
+        "collectionDate": "2024-11-16T16:00:00",
+        "expirationDate": "2025-01-16T16:00:00",
         "status": "Available"
     },
     ...
 ]
-2. Get Entry by ID
+```
+
+### 2. Get Entry by ID
 Retrieve a single donor record by its unique ID.
 
-GET /api/BloodBank/{id}
+**GET** `/api/BloodBank/{id}`
 
-json
-Copy code
-Response:
+**Response:**
+```json
 {
-    "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-    "donorName": "Rajesh Kumar",
+    "donorName": "Anjali Bose",
     "age": 30,
-    "bloodType": "A+",
-    "contactInfo": "rajesh@example.com",
+    "bloodType": "O-",
+    "contactInfo": "anjali.bose@example.com",
     "quantity": 500,
-    "collectionDate": "2024-11-01T10:00:00",
-    "expirationDate": "2025-01-01T10:00:00",
+    "collectionDate": "2024-11-16T16:00:00",
+    "expirationDate": "2025-01-16T16:00:00",
     "status": "Available"
 }
-3. Create a New Entry
+```
+
+### 3. Create a New Entry
 Add a new donor record.
 
-POST /api/BloodBank
+**POST** `/api/BloodBank`
 
-json
-Copy code
-Request Body:
+**Request Body:**
+```json
 {
     "donorName": "Anjali Singh",
     "age": 28,
@@ -233,7 +98,10 @@ Request Body:
     "expirationDate": "2025-01-15T12:00:00",
     "status": "Available"
 }
-Response:
+```
+
+**Response:**
+```json
 201 Created
 {
     "id": "newly-generated-id",
@@ -246,14 +114,15 @@ Response:
     "expirationDate": "2025-01-15T12:00:00",
     "status": "Available"
 }
-4. Update an Entry
+```
+
+### 4. Update an Entry
 Update an existing donor record by ID.
 
-PUT /api/BloodBank/{id}
+**PUT** `/api/BloodBank/{id}`
 
-json
-Copy code
-Request Body:
+**Request Body:**
+```json
 {
     "donorName": "Anjali Sharma",
     "age": 29,
@@ -264,20 +133,30 @@ Request Body:
     "expirationDate": "2025-01-20T12:00:00",
     "status": "Unavailable"
 }
-Response:
+```
+
+**Response:**
+```json
 204 No Content
-5. Delete an Entry
+```
+
+### 5. Delete an Entry
 Delete a donor record by ID.
 
-DELETE /api/BloodBank/{id} Response:
+**DELETE** `/api/BloodBank/{id}`
+
+**Response:**
+```json
 204 No Content
+```
 
-6. Search
-Search for donor records based on donorName, bloodType, or status.
+### 6. Search
+Search for donor records based on `donorName`, `bloodType`, or `status`.
 
-GET /api/BloodBank/search?donorName=Anjali&bloodType=B+&status=Available
+**GET** `/api/BloodBank/search?donorName=Anjali&bloodType=B+&status=Available`
 
-Response:
+**Response:**
+```json
 [
     {
         "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
@@ -291,382 +170,15 @@ Response:
         "status": "Available"
     }
 ]
+```
+
+## Notes
+- Ensure you have **.NET 6 SDK** or later installed.
+- You can use **Postman** to test the API.
 
 
-
-
-Here’s a comprehensive README.md file for your Blood Bank Management project. It includes an overview, setup instructions, and detailed descriptions of the endpoints.
-
-Blood Bank Management System
-Project Overview
-The Blood Bank Management System is a simple ASP.NET Core API for managing blood donation records. It allows CRUD operations, searching, pagination, and sorting of donor records. The project demonstrates fundamental concepts of web API development with ASP.NET Core and follows best practices for designing RESTful APIs.
-
-Features
-Add, update, delete, and retrieve donor records.
-Search donors by name, blood type, or status.
-Paginate results for efficient data presentation.
-Sort records by BloodType or CollectionDate.
-Prerequisites
-Ensure the following are installed on your system:
-
-.NET 6 SDK or later
-A code editor like Visual Studio or Visual Studio Code
-A REST client like Postman or curl for testing the API
-Setup Instructions
-1. Clone the Repository
-bash
-Copy code
-git clone https://github.com/your-username/BloodBankManagement.git
-cd BloodBankManagement
-2. Build the Project
-Restore dependencies and build the project:
-
-bash
-Copy code
-dotnet build
-3. Run the API
-Start the API server:
-
-bash
-Copy code
-dotnet run
-By default, the server will run at http://localhost:5178.
-
-4. Test the API
-Open a browser and navigate to http://localhost:5178/swagger/index.html to explore the Swagger UI.
-Use tools like Postman or curl to test the endpoints.
-Endpoints Documentation
-Base URL
-bash
-Copy code
-http://localhost:5178/api/BloodBank
-1. Get All Entries
-Retrieve all donor records.
-
-GET /api/BloodBank
-
-json
-Copy code
-Response:
-[
-    {
-        "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-        "donorName": "Rajesh Kumar",
-        "age": 30,
-        "bloodType": "A+",
-        "contactInfo": "rajesh@example.com",
-        "quantity": 500,
-        "collectionDate": "2024-11-01T10:00:00",
-        "expirationDate": "2025-01-01T10:00:00",
-        "status": "Available"
-    },
-    ...
-]
-2. Get Entry by ID
-Retrieve a single donor record by its unique ID.
-
-GET /api/BloodBank/{id}
-
-json
-Copy code
-Response:
-{
-    "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-    "donorName": "Rajesh Kumar",
-    "age": 30,
-    "bloodType": "A+",
-    "contactInfo": "rajesh@example.com",
-    "quantity": 500,
-    "collectionDate": "2024-11-01T10:00:00",
-    "expirationDate": "2025-01-01T10:00:00",
-    "status": "Available"
-}
-3. Create a New Entry
-Add a new donor record.
-
-POST /api/BloodBank
-
-json
-Copy code
-Request Body:
-{
-    "donorName": "Anjali Singh",
-    "age": 28,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 450,
-    "collectionDate": "2024-11-15T12:00:00",
-    "expirationDate": "2025-01-15T12:00:00",
-    "status": "Available"
-}
-Response:
-201 Created
-{
-    "id": "newly-generated-id",
-    "donorName": "Anjali Singh",
-    "age": 28,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 450,
-    "collectionDate": "2024-11-15T12:00:00",
-    "expirationDate": "2025-01-15T12:00:00",
-    "status": "Available"
-}
-4. Update an Entry
-Update an existing donor record by ID.
-
-PUT /api/BloodBank/{id}
-
-json
-Copy code
-Request Body:
-{
-    "donorName": "Anjali Sharma",
-    "age": 29,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 500,
-    "collectionDate": "2024-11-20T12:00:00",
-    "expirationDate": "2025-01-20T12:00:00",
-    "status": "Unavailable"
-}
-Response:
-204 No Content
-5. Delete an Entry
-Delete a donor record by ID.
-
-DELETE /api/BloodBank/{id} Response:
-204 No Content
-
-6. Search
-Search for donor records based on donorName, bloodType, or status.
-
-GET /api/BloodBank/search?donorName=Anjali&bloodType=B+&status=Available
-
-json
-Copy code
-Response:
-[
-    {
-        "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-        "donorName": "Anjali Singh",
-        "age": 28,
-        "bloodType": "B+",
-        "contactInfo": "anjali@example.com",
-        "quantity": 450,
-        "collectionDate": "2024-11-15T12:00:00",
-        "expirationDate": "2025-01-15T12:00:00",
-        "status": "Available"
-    }
-]
-
-
-7. Pagination
-Retrieve a specific page of donor records.
-
-GET /api/BloodBank/paginate?pageNumber=1&pageSize=5
-
-
-
-Here’s a comprehensive README.md file for your Blood Bank Management project. It includes an overview, setup instructions, and detailed descriptions of the endpoints.
-
-Blood Bank Management System
-Project Overview
-The Blood Bank Management System is a simple ASP.NET Core API for managing blood donation records. It allows CRUD operations, searching, pagination, and sorting of donor records. The project demonstrates fundamental concepts of web API development with ASP.NET Core and follows best practices for designing RESTful APIs.
-
-Features
-Add, update, delete, and retrieve donor records.
-Search donors by name, blood type, or status.
-Paginate results for efficient data presentation.
-Sort records by BloodType or CollectionDate.
-Prerequisites
-Ensure the following are installed on your system:
-
-.NET 6 SDK or later
-A code editor like Visual Studio or Visual Studio Code
-A REST client like Postman or curl for testing the API
-Setup Instructions
-1. Clone the Repository
-bash
-Copy code
-git clone https://github.com/your-username/BloodBankManagement.git
-cd BloodBankManagement
-2. Build the Project
-Restore dependencies and build the project:
-
-bash
-Copy code
-dotnet build
-3. Run the API
-Start the API server:
-
-bash
-Copy code
-dotnet run
-By default, the server will run at http://localhost:5178.
-
-4. Test the API
-Open a browser and navigate to http://localhost:5178/swagger/index.html to explore the Swagger UI.
-Use tools like Postman or curl to test the endpoints.
-Endpoints Documentation
-Base URL
-bash
-Copy code
-http://localhost:5178/api/BloodBank
-1. Get All Entries
-Retrieve all donor records.
-
-GET /api/BloodBank
-
-json
-Copy code
-Response:
-[
-    {
-        "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-        "donorName": "Rajesh Kumar",
-        "age": 30,
-        "bloodType": "A+",
-        "contactInfo": "rajesh@example.com",
-        "quantity": 500,
-        "collectionDate": "2024-11-01T10:00:00",
-        "expirationDate": "2025-01-01T10:00:00",
-        "status": "Available"
-    },
-    ...
-]
-2. Get Entry by ID
-Retrieve a single donor record by its unique ID.
-
-GET /api/BloodBank/{id}
-
-json
-Copy code
-Response:
-{
-    "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-    "donorName": "Rajesh Kumar",
-    "age": 30,
-    "bloodType": "A+",
-    "contactInfo": "rajesh@example.com",
-    "quantity": 500,
-    "collectionDate": "2024-11-01T10:00:00",
-    "expirationDate": "2025-01-01T10:00:00",
-    "status": "Available"
-}
-3. Create a New Entry
-Add a new donor record.
-
-POST /api/BloodBank
-
-json
-Copy code
-Request Body:
-{
-    "donorName": "Anjali Singh",
-    "age": 28,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 450,
-    "collectionDate": "2024-11-15T12:00:00",
-    "expirationDate": "2025-01-15T12:00:00",
-    "status": "Available"
-}
-Response:
-201 Created
-{
-    "id": "newly-generated-id",
-    "donorName": "Anjali Singh",
-    "age": 28,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 450,
-    "collectionDate": "2024-11-15T12:00:00",
-    "expirationDate": "2025-01-15T12:00:00",
-    "status": "Available"
-}
-4. Update an Entry
-Update an existing donor record by ID.
-
-PUT /api/BloodBank/{id}
-
-json
-Copy code
-Request Body:
-{
-    "donorName": "Anjali Sharma",
-    "age": 29,
-    "bloodType": "B+",
-    "contactInfo": "anjali@example.com",
-    "quantity": 500,
-    "collectionDate": "2024-11-20T12:00:00",
-    "expirationDate": "2025-01-20T12:00:00",
-    "status": "Unavailable"
-}
-Response:
-204 No Content
-5. Delete an Entry
-Delete a donor record by ID.
-
-DELETE /api/BloodBank/{id} Response:
-204 No Content
-
-6. Search
-Search for donor records based on donorName, bloodType, or status.
-
-GET /api/BloodBank/search?donorName=Anjali&bloodType=B+&status=Available
-
-json
-Copy code
-Response:
-[
-    {
-        "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-        "donorName": "Anjali Singh",
-        "age": 28,
-        "bloodType": "B+",
-        "contactInfo": "anjali@example.com",
-        "quantity": 450,
-        "collectionDate": "2024-11-15T12:00:00",
-        "expirationDate": "2025-01-15T12:00:00",
-        "status": "Available"
-    }
-]
-7. Pagination
-Retrieve a specific page of donor records.
-
-GET /api/BloodBank/paginate?pageNumber=1&pageSize=5
-
-json
-Copy code
-Response:
-{
-    "pageNumber": 1,
-    "pageSize": 5,
-    "totalCount": 12,
-    "data": [
-        {
-            "id": "5250c7b3-5976-44a7-a1cd-031027a353a0",
-            "donorName": "Rajesh Kumar",
-            "age": 30,
-            "bloodType": "A+",
-            "contactInfo": "rajesh@example.com",
-            "quantity": 500,
-            "collectionDate": "2024-11-01T10:00:00",
-            "expirationDate": "2025-01-01T10:00:00",
-            "status": "Available"
-        },
-        ...
-    ]
-}
-
-
-
-
-
-Sample Data
-Here are 12 sample donor records for testing:
-
+**Sample Data for testing:**
+```json
 [
   {
     "donorName": "Aarav Mehta",
